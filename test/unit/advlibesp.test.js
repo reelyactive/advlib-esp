@@ -24,6 +24,7 @@ const EXPECTED_DATA_RADIO_ERP1 = {
     type: "RADIO_ERP1",
     dataLength: 10,
     optionalLength: 7,
+    telegramType: "4BS",
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
 const EXPECTED_DATA_NO_PROTOCOL_OVERHEAD = {
@@ -32,7 +33,7 @@ const EXPECTED_DATA_NO_PROTOCOL_OVERHEAD = {
 
 
 // Describe the scenario
-describe('advlib-ble', function() {
+describe('advlib-esp', function() {
 
   // Test the process function with no input data
   it('should handle no input data', function() {
