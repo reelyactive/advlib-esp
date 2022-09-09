@@ -12,7 +12,7 @@ const assert = require ('assert');
 const INPUT_DATA_INVALID_HEX_STRING = 'xyz';
 const INPUT_DATA_TOO_SHORT_BUFFER = Buffer.from('5500', 'hex');
 const INPUT_DATA_RADIO_ERP1 =
-                            '55000a0701eba55602460905174fc48001ffffffff4100a9';
+                            '55000a0701eba55602460905174f008001ffffffff4100a9';
 const INPUT_DATA_OPTIONS_IGNORE_PROTOCOL_OVERHEAD = {
     ignoreProtocolOverhead: true
 };
@@ -25,9 +25,11 @@ const EXPECTED_DATA_RADIO_ERP1 = {
     dataLength: 10,
     optionalLength: 7,
     telegramType: "4BS",
+    deviceIds: [ "05174f00/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
 const EXPECTED_DATA_NO_PROTOCOL_OVERHEAD = {
+    deviceIds: [ "05174f00/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
 
