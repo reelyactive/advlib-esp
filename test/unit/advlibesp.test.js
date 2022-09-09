@@ -11,8 +11,11 @@ const assert = require ('assert');
 // Input data for the scenario
 const INPUT_DATA_INVALID_HEX_STRING = 'xyz';
 const INPUT_DATA_TOO_SHORT_BUFFER = Buffer.from('5500', 'hex');
-const INPUT_DATA_RADIO_ERP1 =
-                            '55000a0701eba55602460905174f008001ffffffff4100a9';
+const INPUT_DATA_4BS = '55000a0701eba55602460905174f008001ffffffff4100a9';
+const INPUT_DATA_1BS = '55000707017ad5090591ee008001ffffffff47003c';
+const INPUT_DATA_VLD =
+                   '55000f07012bd29fde40012be0f4d820041415008001ffffffff340087';
+const INPUT_DATA_RPS = '55000707017af600002e001fa001ffffffff44008a';
 const INPUT_DATA_OPTIONS_IGNORE_PROTOCOL_OVERHEAD = {
     ignoreProtocolOverhead: true
 };
@@ -20,12 +23,36 @@ const INPUT_DATA_OPTIONS_IGNORE_PROTOCOL_OVERHEAD = {
 
 // Expected outputs for the scenario
 const EXPECTED_DATA_INVALID_INPUT = null;
-const EXPECTED_DATA_RADIO_ERP1 = {
+const EXPECTED_DATA_4BS = {
     type: "RADIO_ERP1",
     dataLength: 10,
     optionalLength: 7,
     telegramType: "4BS",
     deviceIds: [ "05174f00/7" ],
+    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+};
+const EXPECTED_DATA_1BS = {
+    type: "RADIO_ERP1",
+    dataLength: 7,
+    optionalLength: 7,
+    telegramType: "1BS",
+    deviceIds: [ "0591ee00/7" ],
+    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+};
+const EXPECTED_DATA_VLD = {
+    type: "RADIO_ERP1",
+    dataLength: 15,
+    optionalLength: 7,
+    telegramType: "VLD",
+    deviceIds: [ "04141500/7" ],
+    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+};
+const EXPECTED_DATA_RPS = {
+    type: "RADIO_ERP1",
+    dataLength: 7,
+    optionalLength: 7,
+    telegramType: "RPS",
+    deviceIds: [ "00002e00/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
 const EXPECTED_DATA_NO_PROTOCOL_OVERHEAD = {
@@ -54,15 +81,29 @@ describe('advlib-esp', function() {
                      EXPECTED_DATA_INVALID_INPUT);
   });
 
-  // Test the process function with a RADIO_ERP1 packet
-  it('should handle a RADIO_ERP1 packet', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_RADIO_ERP1),
-                     EXPECTED_DATA_RADIO_ERP1);
+  // Test the process function with a 4BS RADIO_ERP1 packet
+  it('should handle a 4BS RADIO_ERP1 packet', function() {
+    assert.deepEqual(advlib.process(INPUT_DATA_4BS), EXPECTED_DATA_4BS);
+  });
+
+  // Test the process function with a 1BS RADIO_ERP1 packet
+  it('should handle a 1BS RADIO_ERP1 packet', function() {
+    assert.deepEqual(advlib.process(INPUT_DATA_1BS), EXPECTED_DATA_1BS);
+  });
+
+  // Test the process function with a VLD RADIO_ERP1 packet
+  it('should handle a VLD RADIO_ERP1 packet', function() {
+    assert.deepEqual(advlib.process(INPUT_DATA_VLD), EXPECTED_DATA_VLD);
+  });
+
+  // Test the process function with a RPS RADIO_ERP1 packet
+  it('should handle a RPS RADIO_ERP1 packet', function() {
+    assert.deepEqual(advlib.process(INPUT_DATA_RPS), EXPECTED_DATA_RPS);
   });
 
   // Test the process function with no protocol overhead
   it('should handle the ignore protocol overhead option', function() {
-    assert.deepEqual(advlib.process(INPUT_DATA_RADIO_ERP1, null,
+    assert.deepEqual(advlib.process(INPUT_DATA_4BS, null,
                                   INPUT_DATA_OPTIONS_IGNORE_PROTOCOL_OVERHEAD),
                      EXPECTED_DATA_NO_PROTOCOL_OVERHEAD);
   });
