@@ -12,6 +12,53 @@ Installation
     npm install advlib-esp
 
 
+Hello advlib-esp!
+-----------------
+
+```javascript
+const advlib = require('advlib-esp');
+
+let packet = '55000707017ad5090591ee008001ffffffff47003c';
+let processedPacket = advlib.process(packet);
+
+console.log(processedPacket);
+```
+
+Which should yield the following console output:
+
+    { type: "RADIO_ERP1",
+      dataLength: 7,
+      optionalLength: 7,
+      telegramType: "1BS",
+      deviceIds: [ "0591ee00/7" ],
+      isContactDetected: [ true ],
+      uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/" }
+
+
+Options
+-------
+
+__advlib-esp__ supports the following options for its process function:
+
+| Property               | Default | Description                         | 
+|:-----------------------|:--------|:------------------------------------|
+| ignoreProtocolOverhead | false   | Ignore non-sensor & non-identifier properties (type, dataLength, optionalLenth, telegramType, etc.) |
+
+For example, to ignore the Enocean Serial Protocol (ESP) overhead:
+
+```javascript
+let packet = '55000707017ad5090591ee008001ffffffff47003c';
+let options = { ignoreProtocolOverhead: true };
+let processedPacket = advlib.process(packet, [], options);
+```
+
+Which should yield the following console output:
+
+    { deviceIds: [ "0591ee00/7" ],
+      isContactDetected: [ true ],
+      uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/" }
+
+
 Contributing
 ------------
 
