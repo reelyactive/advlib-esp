@@ -1,0 +1,38 @@
+{
+  "name": "advlib-esp",
+  "homepage": "https://github.com/reelyactive/advlib-esp/",
+  "author": {
+    "name": "reelyActive",
+    "email": "info@reelyactive.com"
+  },
+  "description": "Wireless advertising packet decoding library for EnOcean Alliance devices via the EnOcean Serial Protocol (ESP).  We believe in an open Internet of Things.",
+  "keywords": [
+    "reelyActive",
+    "advlib",
+    "EnOcean Alliance",
+    "ESP",
+    "payload processor",
+    "library"
+  ],
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "main": "./lib/advlibesp.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reelyactive/advlib-esp.git"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^6.0.0"
+  },
+  "bugs": {
+    "url": "https://github.com/reelyactive/advlib-esp/issues"
+  },
+  "contributors": [
+    { "name": "Jeffrey Dungen" }
+  ],
+  "license": "MIT"
+}
