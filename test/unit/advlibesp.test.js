@@ -37,6 +37,7 @@ const EXPECTED_DATA_1BS = {
     optionalLength: 7,
     telegramType: "1BS",
     deviceIds: [ "0591ee00/7" ],
+    isContactDetected: [ true ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
 const EXPECTED_DATA_VLD = {
