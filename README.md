@@ -43,6 +43,7 @@ __advlib-esp__ supports the following options for its process function:
 | Property               | Default | Description                         | 
 |:-----------------------|:--------|:------------------------------------|
 | ignoreProtocolOverhead | false   | Ignore non-sensor & non-identifier properties (type, dataLength, optionalLenth, telegramType, etc.) |
+| isERP1PayloadOnly      | false   | Interpret data as an ERP1 payload only (i.e. only the data portion of the RADIO_ERP1 ESP packet) |
 
 For example, to ignore the Enocean Serial Protocol (ESP) overhead:
 

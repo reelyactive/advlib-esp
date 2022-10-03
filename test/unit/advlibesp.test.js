@@ -16,8 +16,12 @@ const INPUT_DATA_1BS = '55000707017ad5090591ee008001ffffffff47003c';
 const INPUT_DATA_VLD =
                    '55000f07012bd29fde40012be0f4d820041415008001ffffffff340087';
 const INPUT_DATA_RPS = '55000707017af600002e001fa001ffffffff44008a';
+const INPUT_DATA_ERP1_PAYLOAD_ONLY = 'd29fdc0000c3e8f7d82005174f0080';
 const INPUT_DATA_OPTIONS_IGNORE_PROTOCOL_OVERHEAD = {
     ignoreProtocolOverhead: true
+};
+const INPUT_DATA_OPTIONS_ERP1_PAYLOAD_ONLY = {
+    isERP1PayloadOnly: true
 };
 
 
@@ -57,6 +61,11 @@ const EXPECTED_DATA_RPS = {
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
 const EXPECTED_DATA_NO_PROTOCOL_OVERHEAD = {
+    deviceIds: [ "05174f00/7" ],
+    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+};
+const EXPECTED_DATA_ERP1_PAYLOAD_ONLY = {
+    telegramType: "VLD",
     deviceIds: [ "05174f00/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
@@ -107,6 +116,13 @@ describe('advlib-esp', function() {
     assert.deepEqual(advlib.process(INPUT_DATA_4BS, null,
                                   INPUT_DATA_OPTIONS_IGNORE_PROTOCOL_OVERHEAD),
                      EXPECTED_DATA_NO_PROTOCOL_OVERHEAD);
+  });
+
+  // Test the process function with ERP1 payload only
+  it('should handle the ERP1 payload only option', function() {
+    assert.deepEqual(advlib.process(INPUT_DATA_ERP1_PAYLOAD_ONLY, null,
+                                    INPUT_DATA_OPTIONS_ERP1_PAYLOAD_ONLY),
+                     EXPECTED_DATA_ERP1_PAYLOAD_ONLY);
   });
 
 });
