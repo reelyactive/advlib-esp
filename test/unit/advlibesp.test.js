@@ -16,6 +16,7 @@ const INPUT_DATA_1BS = '55000707017ad5090591ee008001ffffffff47003c';
 const INPUT_DATA_VLD =
                    '55000f07012bd29fde40012be0f4d820041415008001ffffffff340087';
 const INPUT_DATA_RPS = '55000707017af600002e001fa001ffffffff44008a';
+const INPUT_DATA_UTE = '55000d0701fdd440ff0b004114d2041400698001ffffffff2a00c4';
 const INPUT_DATA_ERP1_PAYLOAD_ONLY = 'd29fdc0000c3e8f7d82005174f0080';
 const INPUT_DATA_OPTIONS_IGNORE_PROTOCOL_OVERHEAD = {
     ignoreProtocolOverhead: true
@@ -58,6 +59,15 @@ const EXPECTED_DATA_RPS = {
     optionalLength: 7,
     telegramType: "RPS",
     deviceIds: [ "00002e00/7" ],
+    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+};
+const EXPECTED_DATA_UTE = {
+    type: "RADIO_ERP1",
+    dataLength: 13,
+    optionalLength: 7,
+    telegramType: "UTE",
+    eepType: "D2-14-41",
+    deviceIds: [ "04140069/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
 const EXPECTED_DATA_NO_PROTOCOL_OVERHEAD = {
@@ -109,6 +119,11 @@ describe('advlib-esp', function() {
   // Test the process function with a RPS RADIO_ERP1 packet
   it('should handle a RPS RADIO_ERP1 packet', function() {
     assert.deepEqual(advlib.process(INPUT_DATA_RPS), EXPECTED_DATA_RPS);
+  });
+
+  // Test the process function with a UTE RADIO_ERP1 packet
+  it('should handle a UTE RADIO_ERP1 packet', function() {
+    assert.deepEqual(advlib.process(INPUT_DATA_UTE), EXPECTED_DATA_UTE);
   });
 
   // Test the process function with no protocol overhead
