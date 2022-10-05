@@ -33,6 +33,7 @@ const EXPECTED_DATA_4BS = {
     dataLength: 10,
     optionalLength: 7,
     telegramType: "4BS",
+    telegramPayload: "56024609",
     deviceIds: [ "05174f00/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
@@ -59,6 +60,7 @@ const EXPECTED_DATA_RPS = {
     dataLength: 7,
     optionalLength: 7,
     telegramType: "RPS",
+    telegramPayload: "00",
     deviceIds: [ "002e001f/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
@@ -67,11 +69,13 @@ const EXPECTED_DATA_UTE = {
     dataLength: 13,
     optionalLength: 7,
     telegramType: "UTE",
+    telegramPayload: "40ff0b004114d2",
     eepType: "D2-14-41",
     deviceIds: [ "04140069/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
 const EXPECTED_DATA_NO_PROTOCOL_OVERHEAD = {
+    telegramPayload: "56024609",
     deviceIds: [ "05174f00/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
