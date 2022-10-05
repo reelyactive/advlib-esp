@@ -50,6 +50,7 @@ const EXPECTED_DATA_VLD = {
     dataLength: 15,
     optionalLength: 7,
     telegramType: "VLD",
+    telegramPayload: "9fde40012be0f4d820",
     deviceIds: [ "04141500/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
@@ -76,6 +77,7 @@ const EXPECTED_DATA_NO_PROTOCOL_OVERHEAD = {
 };
 const EXPECTED_DATA_ERP1_PAYLOAD_ONLY = {
     telegramType: "VLD",
+    telegramPayload: "9fdc0000c3e8f7d820",
     deviceIds: [ "05174f00/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
