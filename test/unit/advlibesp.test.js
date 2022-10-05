@@ -59,7 +59,7 @@ const EXPECTED_DATA_RPS = {
     dataLength: 7,
     optionalLength: 7,
     telegramType: "RPS",
-    deviceIds: [ "00002e00/7" ],
+    deviceIds: [ "002e001f/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
 const EXPECTED_DATA_UTE = {
