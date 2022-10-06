@@ -3,7 +3,13 @@ advlib-esp
 
 Wireless advertising packet decoding library for EnOcean Alliance devices via the EnOcean Serial Protocol (ESP).  __advlib-esp__ can be used standalone or, more commonly, as a processor module of the protocol-agnostic [advlib](https://github.com/reelyactive/advlib) library.
 
-__advlib-esp__ is a lightweight [Node.js package](https://www.npmjs.com/package/advlib-esp) that implements the subset of ESP3 specific to sensor data and radio-identification.
+__advlib-esp__ is a lightweight [Node.js package](https://www.npmjs.com/package/advlib-esp) that implements the subset of ESP3 specific to sensor data and radio-identification, and can be extended with libraries to decode EnOcean Equipment Profiles (EEP).
+
+| Library | Decodes |
+|:--------|:--------|
+| [advlib-eep-vld](https://github.com/reelyactive/advlib-eep-vld) | Variable-length data (VLD) telegrams |
+| [advlib-eep-4bs](https://github.com/reelyactive/advlib-eep-4bs) | 4-byte sensor (4BS) telegrams |
+| [advlib-eep-rps](https://github.com/reelyactive/advlib-eep-rps) | Rocker position switch (RPS) telegrams |
 
 
 Installation
@@ -17,6 +23,10 @@ Hello advlib-esp!
 
 ```javascript
 const advlib = require('advlib-esp');
+
+const LIBRARIES = [ require('advlib-eep-vld'),
+                    require('advlib-eep-4bs'),
+                    require('advlib-eep-rps' ];
 
 let packet = '55000707017ad5090591ee008001ffffffff47003c';
 let processedPacket = advlib.process(packet);
