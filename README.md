@@ -26,7 +26,7 @@ const advlib = require('advlib-esp');
 
 const LIBRARIES = [ require('advlib-eep-vld'),
                     require('advlib-eep-4bs'),
-                    require('advlib-eep-rps' ];
+                    require('advlib-eep-rps') ];
 
 let packet = '55000707017ad5090591ee008001ffffffff47003c';
 let processedPacket = advlib.process(packet);
