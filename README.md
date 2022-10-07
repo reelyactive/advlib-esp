@@ -29,7 +29,7 @@ const LIBRARIES = [ require('advlib-eep-vld'),
                     require('advlib-eep-rps') ];
 
 let packet = '55000707017ad5090591ee008001ffffffff47003c';
-let processedPacket = advlib.process(packet);
+let processedPacket = advlib.process(packet, LIBRARIES);
 
 console.log(processedPacket);
 ```
@@ -54,20 +54,33 @@ __advlib-esp__ supports the following options for its process function:
 |:-----------------------|:--------|:------------------------------------|
 | ignoreProtocolOverhead | false   | Ignore non-sensor & non-identifier properties (type, dataLength, optionalLenth, telegramType, etc.) |
 | isERP1PayloadOnly      | false   | Interpret data as an ERP1 payload only (i.e. only the data portion of the RADIO_ERP1 ESP packet) |
+| deviceProfiles         | {}      | Map or Object of devices indexed by device signature and containing EEP types to facilitate decoding |
 
-For example, to ignore the Enocean Serial Protocol (ESP) overhead:
+For example, to ignore the Enocean Serial Protocol (ESP) overhead, and to provide only an ERP1 payload, and to specify the profile for the given device (or simply for all devices):
 
 ```javascript
-let packet = '55000707017ad5090591ee008001ffffffff47003c';
-let options = { ignoreProtocolOverhead: true };
-let processedPacket = advlib.process(packet, [], options);
+let payload = 'd29165c02963e4f5d8000414006980';
+let deviceProfiles = { "04140069/7": { eepType: "D2-14-41" } };
+let options = {
+    ignoreProtocolOverhead: true,
+    isERP1PayloadOnly: true,
+    deviceProfiles: deviceProfiles
+};
+let processedPacket = advlib.process(payload, LIBRARIES, options);
 ```
 
 Which should yield the following console output:
 
-    { deviceIds: [ "0591ee00/7" ],
-      isContactDetected: [ true ],
+    { deviceIds: [ "04140069/7" ],
+      acceleration: [ -0.01, -0.045, 1.02 ],
+      illuminance: 331,
+      isContactDetected: [ false ],
+      isMotionDetected: [ false ],
+      relativeHumidity: 75.5,
+      temperature: 18.1
       uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/" }
+
+Note that each device signature in the deviceProfiles is a combination of the 32-bit EnOcean Unique Radio Identifier of the device and ["/7" which specifies the EURID-32 type](https://github.com/reelyactive/raddec#identifier-types).
 
 
 Contributing
