@@ -83,6 +83,16 @@ Which should yield the following console output:
 Note that each device signature in the deviceProfiles is a combination of the 32-bit EnOcean Unique Radio Identifier of the device and ["/7" which specifies the EURID-32 type](https://github.com/reelyactive/raddec#identifier-types).
 
 
+Supported EnOcean Equipment Profiles
+------------------------------------
+
+1BS (1-Byte Sensor) EEPs, as listed in the table below, are currently supported directly by __advlib-esp__.  Other telegram types are supported by extension of the libraries described above. 
+
+| EEP      | Profile Name         |
+|:---------|:---------------------|
+| D5-00-01 | Single Input Contact |
+
+
 Contributing
 ------------
 
