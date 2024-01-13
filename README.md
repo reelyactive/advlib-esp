@@ -3,6 +3,8 @@ advlib-esp
 
 Wireless advertising packet decoding library for EnOcean Alliance devices via the EnOcean Serial Protocol (ESP).  __advlib-esp__ can be used standalone or, more commonly, as a processor module of the protocol-agnostic [advlib](https://github.com/reelyactive/advlib) library.
 
+![Overview of advlib-esp](https://reelyactive.github.io/advlib-esp/images/overview.png)
+
 __advlib-esp__ is a lightweight [Node.js package](https://www.npmjs.com/package/advlib-esp) that implements the subset of ESP3 specific to sensor data and radio-identification, and can be extended with libraries to decode EnOcean Equipment Profiles (EEP).
 
 | Library | Decodes |
@@ -91,6 +93,8 @@ Supported EnOcean Equipment Profiles
 | EEP      | Profile Name         |
 |:---------|:---------------------|
 | D5-00-01 | Single Input Contact |
+
+See [www.reelyactive.com/pareto/anywhere/devices/enocean-alliance/](https://www.reelyactive.com/pareto/anywhere/devices/enocean-alliance/) for a list of all EEPs supported by our [Pareto Anywhere](https://www.reelyactive.com/pareto/anywhere/) open source IoT middleware.
 
 
 Contributing
