@@ -44,7 +44,7 @@ Which should yield the following console output:
       telegramType: "1BS",
       deviceIds: [ "0591ee00/7" ],
       isContactDetected: [ true ],
-      uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/" }
+      uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/" }
 
 
 Options
@@ -80,7 +80,7 @@ Which should yield the following console output:
       isMotionDetected: [ false ],
       relativeHumidity: 75.5,
       temperature: 18.1
-      uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/" }
+      uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/" }
 
 Note that each device signature in the deviceProfiles is a combination of the 32-bit EnOcean Unique Radio Identifier of the device and ["/7" which specifies the EURID-32 type](https://github.com/reelyactive/raddec#identifier-types).
 
