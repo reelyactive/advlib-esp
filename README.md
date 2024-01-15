@@ -12,6 +12,7 @@ __advlib-esp__ is a lightweight [Node.js package](https://www.npmjs.com/package/
 | [advlib-eep-vld](https://github.com/reelyactive/advlib-eep-vld) | Variable-length data (VLD) telegrams |
 | [advlib-eep-4bs](https://github.com/reelyactive/advlib-eep-4bs) | 4-byte sensor (4BS) telegrams |
 | [advlib-eep-rps](https://github.com/reelyactive/advlib-eep-rps) | Rocker position switch (RPS) telegrams |
+| [advlib-eep-msc](https://github.com/reelyactive/advlib-eep-msc) | Manufacturer-specific communication (MSC) telegrams |
 
 
 Installation
