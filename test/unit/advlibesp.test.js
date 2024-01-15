@@ -1,5 +1,5 @@
 /**
- * Copyright reelyActive 2022
+ * Copyright reelyActive 2022-2024
  * We believe in an open Internet of Things
  */
 
@@ -13,6 +13,8 @@ const INPUT_DATA_INVALID_HEX_STRING = 'xyz';
 const INPUT_DATA_TOO_SHORT_BUFFER = Buffer.from('5500', 'hex');
 const INPUT_DATA_4BS = '55000a0701eba55602460905174f008001ffffffff4100a9';
 const INPUT_DATA_1BS = '55000707017ad5090591ee008001ffffffff47003c';
+const INPUT_DATA_MSC =
+                   '55000f07012bd104700324456ca3729804274f798003ffffffff2a002f';
 const INPUT_DATA_VLD =
                    '55000f07012bd29fde40012be0f4d820041415008001ffffffff340087';
 const INPUT_DATA_RPS = '55000707017af600002e001fa001ffffffff44008a';
@@ -44,6 +46,15 @@ const EXPECTED_DATA_1BS = {
     telegramType: "1BS",
     deviceIds: [ "0591ee00/7" ],
     isContactDetected: [ true ],
+    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+};
+const EXPECTED_DATA_MSC = {
+    type: "RADIO_ERP1",
+    dataLength: 15,
+    optionalLength: 7,
+    telegramType: "MSC",
+    telegramPayload: "04700324456ca37298",
+    deviceIds: [ "04274f79/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
 };
 const EXPECTED_DATA_VLD = {
@@ -115,6 +126,11 @@ describe('advlib-esp', function() {
   // Test the process function with a 1BS RADIO_ERP1 packet
   it('should handle a 1BS RADIO_ERP1 packet', function() {
     assert.deepEqual(advlib.process(INPUT_DATA_1BS), EXPECTED_DATA_1BS);
+  });
+
+  // Test the process function with a MSC RADIO_ERP1 packet
+  it('should handle a MSC RADIO_ERP1 packet', function() {
+    assert.deepEqual(advlib.process(INPUT_DATA_MSC), EXPECTED_DATA_MSC);
   });
 
   // Test the process function with a VLD RADIO_ERP1 packet
