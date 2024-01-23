@@ -31,7 +31,7 @@ const LIBRARIES = [ require('advlib-eep-vld'),
                     require('advlib-eep-4bs'),
                     require('advlib-eep-rps') ];
 
-let packet = '55000707017ad5090591ee008001ffffffff47003c';
+let packet = '55000707017ad5090591ee968001ffffffff47003c';
 let processedPacket = advlib.process(packet, LIBRARIES);
 
 console.log(processedPacket);
@@ -43,7 +43,7 @@ Which should yield the following console output:
       dataLength: 7,
       optionalLength: 7,
       telegramType: "1BS",
-      deviceIds: [ "0591ee00/7" ],
+      deviceIds: [ "0591ee96/7" ],
       isContactDetected: [ true ],
       uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/" }
 
