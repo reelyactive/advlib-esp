@@ -37,7 +37,7 @@ const EXPECTED_DATA_4BS = {
     telegramType: "4BS",
     telegramPayload: "56024609",
     deviceIds: [ "05174f00/7" ],
-    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+    uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_1BS = {
     type: "RADIO_ERP1",
@@ -46,7 +46,7 @@ const EXPECTED_DATA_1BS = {
     telegramType: "1BS",
     deviceIds: [ "0591ee00/7" ],
     isContactDetected: [ true ],
-    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+    uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_MSC = {
     type: "RADIO_ERP1",
@@ -55,7 +55,7 @@ const EXPECTED_DATA_MSC = {
     telegramType: "MSC",
     telegramPayload: "04700324456ca37298",
     deviceIds: [ "04274f79/7" ],
-    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+    uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_VLD = {
     type: "RADIO_ERP1",
@@ -64,7 +64,7 @@ const EXPECTED_DATA_VLD = {
     telegramType: "VLD",
     telegramPayload: "9fde40012be0f4d820",
     deviceIds: [ "04141500/7" ],
-    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+    uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_RPS = {
     type: "RADIO_ERP1",
@@ -73,7 +73,7 @@ const EXPECTED_DATA_RPS = {
     telegramType: "RPS",
     telegramPayload: "00",
     deviceIds: [ "002e001f/7" ],
-    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+    uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_UTE = {
     type: "RADIO_ERP1",
@@ -83,18 +83,18 @@ const EXPECTED_DATA_UTE = {
     telegramPayload: "40ff0b004114d2",
     eepType: "D2-14-41",
     deviceIds: [ "04140069/7" ],
-    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+    uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_NO_PROTOCOL_OVERHEAD = {
     telegramPayload: "56024609",
     deviceIds: [ "05174f00/7" ],
-    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+    uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_ERP1_PAYLOAD_ONLY = {
     telegramType: "VLD",
     telegramPayload: "9fdc0000c3e8f7d820",
     deviceIds: [ "05174f00/7" ],
-    uri: "https://sniffypedia.org/Organization/EnOcean_GmbH/"
+    uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 
 
