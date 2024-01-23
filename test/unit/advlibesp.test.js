@@ -11,14 +11,14 @@ const assert = require ('assert');
 // Input data for the scenario
 const INPUT_DATA_INVALID_HEX_STRING = 'xyz';
 const INPUT_DATA_TOO_SHORT_BUFFER = Buffer.from('5500', 'hex');
-const INPUT_DATA_4BS = '55000a0701eba55602460905174f008001ffffffff4100a9';
-const INPUT_DATA_1BS = '55000707017ad5090591ee008001ffffffff47003c';
+const INPUT_DATA_4BS = '55000a0701eba55602460905174fc48001ffffffff4100a9';
+const INPUT_DATA_1BS = '55000707017ad5090591ee968001ffffffff47003c';
 const INPUT_DATA_MSC =
                    '55000f07012bd104700324456ca3729804274f798003ffffffff2a002f';
 const INPUT_DATA_VLD =
-                   '55000f07012bd29fde40012be0f4d820041415008001ffffffff340087';
-const INPUT_DATA_RPS = '55000707017af600002e001fa001ffffffff44008a';
-const INPUT_DATA_UTE = '55000d0701fdd440ff0b004114d2041400698001ffffffff2a00c4';
+                   '55000f07012bd29fde40012be0f4d820041415598001ffffffff340087';
+const INPUT_DATA_RPS = '55000707017af600002eea1fa001ffffffff44008a';
+const INPUT_DATA_UTE = '55000d0701fdd440ff0b004114d2041415598001ffffffff27002d';
 const INPUT_DATA_ERP1_PAYLOAD_ONLY = 'd29fdc0000c3e8f7d82005174f0080';
 const INPUT_DATA_OPTIONS_IGNORE_PROTOCOL_OVERHEAD = {
     ignoreProtocolOverhead: true
@@ -36,7 +36,7 @@ const EXPECTED_DATA_4BS = {
     optionalLength: 7,
     telegramType: "4BS",
     telegramPayload: "56024609",
-    deviceIds: [ "05174f00/7" ],
+    deviceIds: [ "05174fc4/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_1BS = {
@@ -44,7 +44,7 @@ const EXPECTED_DATA_1BS = {
     dataLength: 7,
     optionalLength: 7,
     telegramType: "1BS",
-    deviceIds: [ "0591ee00/7" ],
+    deviceIds: [ "0591ee96/7" ],
     isContactDetected: [ true ],
     uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
@@ -63,7 +63,7 @@ const EXPECTED_DATA_VLD = {
     optionalLength: 7,
     telegramType: "VLD",
     telegramPayload: "9fde40012be0f4d820",
-    deviceIds: [ "04141500/7" ],
+    deviceIds: [ "04141559/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_RPS = {
@@ -72,7 +72,7 @@ const EXPECTED_DATA_RPS = {
     optionalLength: 7,
     telegramType: "RPS",
     telegramPayload: "00",
-    deviceIds: [ "002e001f/7" ],
+    deviceIds: [ "002eea1f/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_UTE = {
@@ -82,12 +82,12 @@ const EXPECTED_DATA_UTE = {
     telegramType: "UTE",
     telegramPayload: "40ff0b004114d2",
     eepType: "D2-14-41",
-    deviceIds: [ "04140069/7" ],
+    deviceIds: [ "04141559/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_NO_PROTOCOL_OVERHEAD = {
     telegramPayload: "56024609",
-    deviceIds: [ "05174f00/7" ],
+    deviceIds: [ "05174fc4/7" ],
     uri: "https://sniffypedia.org/Organization/EnOcean_Alliance/"
 };
 const EXPECTED_DATA_ERP1_PAYLOAD_ONLY = {
